@@ -1822,7 +1822,7 @@ struct file_buffer *get_file_buffer(struct queue *queue)
 }
 
 
-int progress_bar(long long current, long long max, int columns)
+void progress_bar(long long current, long long max, int columns)
 {
 	int max_digits = ceil(log10(max));
 	int used = max_digits * 2 + 10;
@@ -2381,6 +2381,7 @@ void scan2_freedir(struct directory *dir)
 	free(dir->buff);
 }
 
+int dir_scan2(squashfs_inode *inode, struct dir_info *dir_info);
 
 void dir_scan(squashfs_inode *inode, char *pathname, int (_readdir)(char *, char *, struct dir_info *))
 {
@@ -2429,7 +2430,6 @@ void dir_scan(squashfs_inode *inode, char *pathname, int (_readdir)(char *, char
 	dir_ent->inode->inode = *inode;
 	dir_ent->inode->type = SQUASHFS_DIR_TYPE;
 }
-
 
 struct dir_info *dir_scan1(char *pathname, int (_readdir)(char *, char *, struct dir_info *))
 {

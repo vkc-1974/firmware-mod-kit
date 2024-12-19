@@ -1,7 +1,7 @@
 CC := gcc
 CXX := g++
 INCLUDEDIR = .
-CFLAGS := -I$(INCLUDEDIR) -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -O2
+CFLAGS := -I$(INCLUDEDIR) -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -O2 -Du_int32_t=uint32_t
 
 all: asustrx addpattern untrx motorola-bin splitter3 bffutils unjffs2
 	$(MAKE) -C ./uncramfs/

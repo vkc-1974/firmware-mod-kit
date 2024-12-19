@@ -1292,6 +1292,7 @@ void *linux_opendir(char *pathname, struct directory *dir)
 	return (void *) linuxdir;
 }
 
+int devtable_readdir(void *l, char *filename, char *dir_name, struct stat* devtable_inode_info);
 
 int linux_readdir(void *l, char *filename, char *dir_name, struct stat* devtable_inode_info)
 {

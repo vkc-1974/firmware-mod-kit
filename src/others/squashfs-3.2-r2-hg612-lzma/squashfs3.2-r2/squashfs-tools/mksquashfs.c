@@ -1815,7 +1815,7 @@ struct file_buffer *get_file_buffer(struct queue *queue)
 }
 
 
-int progress_bar(long long current, long long max, int columns)
+void progress_bar(long long current, long long max, int columns)
 {
 	int max_digits = ceil(log10(max));
 	int used = max_digits * 2 + 10;
@@ -1823,7 +1823,7 @@ int progress_bar(long long current, long long max, int columns)
 	int spaces = columns - used - hashes;
 
 	if(!progress || columns - used < 0)
-		return 0;
+		return;
 
 	printf("\r[");
 
@@ -1836,7 +1836,7 @@ int progress_bar(long long current, long long max, int columns)
 	printf("] %*lld/%*lld", max_digits, current, max_digits, max);
 	printf(" %3lld%%", current * 100 / max);
 	fflush(stdout);
-	return 0;
+	return;
 }
 
 

@@ -2002,7 +2002,7 @@ void reader_scan(struct dir_info *dir) {
 				break;
 		}
 	}
-	return NULL;
+	return;
 }
 
 
